@@ -4,44 +4,52 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
-class Node {
-	Node left, right;
-	int data;
-	Node(int d) {
-		data = d;
-		left = right = null;
-	}
-}
 
-class BinaryTree {
-	Node root;
+
+public class BinaryTree {
+	
+	static class Node {
+		Node left, right;
+		int data;
+		Node(int d) {
+			data = d;
+			left = right = null;
+		}
+	}
+	
+	static Node root;
+	
+	BinaryTree() {
+		root = null;
+	}
+	
 	public static void main(String[] args) {
 		BinaryTree tree = new BinaryTree();
 		
-		tree.root = new Node(10);
-		tree.root.left = new Node(5);
-		tree.root.right = new Node(20); 
-		tree.root.left.left = new Node(3);
-		tree.root.left.right = new Node(6);
-		tree.root.right.left = new Node(15);
-		tree.root.right.right = new Node(8);
+		root = new Node(10);
+		root.left = new Node(5);
+		root.right = new Node(20); 
+		root.left.left = new Node(3);
+		root.left.right = new Node(6);
+		root.right.left = new Node(15);
+		root.right.right = new Node(8);
 		
 		System.out.print("INORDER TRAVERSAL: ");
-		tree.inorderTraversal(tree.root);
+		tree.inorderTraversal(root);
 		System.out.print("\nPREORDER TRAVERSAL: ");
-		tree.preorderTraversal(tree.root);
+		tree.preorderTraversal(root);
 		System.out.print("\nPOSTORDER TRAVERSAL: ");
-		tree.postorderTraversal(tree.root);	
+		tree.postorderTraversal(root);	
 		
 		System.out.print("\n\nINORDER TRAVERSAL WITHOUT RECURSION: ");
-		tree.inorderWithoutRecursion(tree.root);
+		tree.inorderWithoutRecursion(root);
 		System.out.print("\nPREORDER TRAVERSAL WITHOUT RECURSION: ");
-		tree.preorderWithoutRecursion(tree.root);
+		tree.preorderWithoutRecursion(root);
 		System.out.print("\nPOSTORDER TRAVERSAL WITHOUT RECURSION: ");
-		tree.postorderWithoutRecursion(tree.root);	
+		tree.postorderWithoutRecursion(root);	
 		
 		System.out.print("\n\nLEVEL ORDER TRAVERSAL: ");
-		tree.levelOrderTraversal(tree.root);
+		tree.levelOrderTraversal(root);
 	}
 	
 	void levelOrderTraversal(Node root) {
